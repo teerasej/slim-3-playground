@@ -12,10 +12,18 @@ $app = new \Slim\App(["settings" => $config]);
 $container = $app->getContainer();
 require 'pdo.php';
 
+// CORS
+require 'cors.php';
+
+// Authentication
+require 'authen-config.php';
+require 'authen.php';
+
 // Route ต่างๆ 
 require 'routes/hello.php';
 require 'routes/user.php';
 require 'routes/room.php';
+require 'routes/report.php';
 
 $app->get('/room/all', function(){ echo '/room/all'; });
 $app->get('/room/reserve', function(){ echo '/room/reserve'; });
